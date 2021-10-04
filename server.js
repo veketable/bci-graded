@@ -18,7 +18,17 @@ const userRegistrationSchema = require('./schemas/userRegisterSchema.schema.json
 const findPostSchema = require('./schemas/findPostSchema.schema.json')
 const putPostSchema = require('./schemas/putPostSchema.schema.json')
 const jwtSecretKey = "mySecretKey"
-const port = 3000
+var cloudinary = require('cloudinary')
+var cloudinaryStorage = require('multer-storage-cloudinary')
+
+var storage = cloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: '',
+    allowedFormats: ['jpg', 'png']
+})
+
+var parser = multer ({storage: storage})
+
 
 const postInfoValidator = ajv.compile(postInfoSchema)
 const userRegistrationgValidator = ajv.compile(userRegistrationSchema)
@@ -145,7 +155,7 @@ app.get('/jwtProtectedResource', passport.authenticate('jwt', {session: false}),
 
 })
 
-app.post('/posting', passport.authenticate('jwt', {session: false}), upload.array('photos', 4), (req, res) => {
+app.post('/posting', passport.authenticate('jwt', {session: false}), parser.array('photos', 4), (req, res) => {
 
     const validationResult = postInfoValidator(req.body)
 
@@ -236,7 +246,7 @@ app.get('/posting', (req, res) => {
            
 })
 
-app.put('/posting/:id', passport.authenticate('jwt', {session: false}), upload.array('photos', 4), (req, res) => {
+app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.array('photos', 4), (req, res) => {
 
     const validationResult = putPostValidator(req.body)
 
