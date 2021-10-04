@@ -183,6 +183,7 @@ app.post('/posting', passport.authenticate('jwt', {session: false}), parser.arra
             contacts: contactFinal
         }
         res.sendStatus(201)
+        res.json(req.file)
         
         posts.push(newPost)
         }else {
@@ -271,6 +272,7 @@ app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.a
             res.sendStatus(400)
         }else{
             res.sendStatus(200)
+            res.json(req.file)
         }
         
     }else{
