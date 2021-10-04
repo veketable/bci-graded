@@ -1,0 +1,216 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "getInfo",
+    "type": "array",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": [],
+    "examples": [
+        [
+            {
+                "id": "ccdac8f0-ed68-4dff-8aac-a5b175d80e62",
+                "title": "ps46",
+                "description": "hyvä kuntoinen",
+                "category": "videopelit",
+                "location": "Oulu",
+                "price": "26.4",
+                "date": "4.10.2021",
+                "delivery": "pickup",
+                "contacts": {
+                    "userID": "d0941d7b-6d57-4b42-99e5-a2ee919e0793",
+                    "username": "veke",
+                    "email": "veke.table@gmail.com",
+                    "phone": "0442943951"
+                }
+            }
+        ]
+    ],
+    "items": {
+        "$id": "#/items",
+        "anyOf": [
+            {
+                "$id": "#/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "id": "ccdac8f0-ed68-4dff-8aac-a5b175d80e62",
+                        "title": "ps46",
+                        "description": "hyvä kuntoinen",
+                        "category": "videopelit",
+                        "location": "Oulu",
+                        "price": "26.4",
+                        "date": "4.10.2021",
+                        "delivery": "pickup",
+                        "contacts": {
+                            "userID": "d0941d7b-6d57-4b42-99e5-a2ee919e0793",
+                            "username": "veke",
+                            "email": "veke.table@gmail.com",
+                            "phone": "0442943951"
+                        }
+                    }
+                ],
+                "required": [
+                    "id",
+                    "title",
+                    "description",
+                    "category",
+                    "location",
+                    "price",
+                    "date",
+                    "delivery",
+                    "contacts"
+                ],
+                "properties": {
+                    "id": {
+                        "$id": "#/items/anyOf/0/properties/id",
+                        "type": "string",
+                        "title": "The id schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "ccdac8f0-ed68-4dff-8aac-a5b175d80e62"
+                        ]
+                    },
+                    "title": {
+                        "$id": "#/items/anyOf/0/properties/title",
+                        "type": "string",
+                        "title": "The title schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "ps46"
+                        ]
+                    },
+                    "description": {
+                        "$id": "#/items/anyOf/0/properties/description",
+                        "type": "string",
+                        "title": "The description schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "hyvä kuntoinen"
+                        ]
+                    },
+                    "category": {
+                        "$id": "#/items/anyOf/0/properties/category",
+                        "type": "string",
+                        "title": "The category schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "videopelit"
+                        ]
+                    },
+                    "location": {
+                        "$id": "#/items/anyOf/0/properties/location",
+                        "type": "string",
+                        "title": "The location schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Oulu"
+                        ]
+                    },
+                    "price": {
+                        "$id": "#/items/anyOf/0/properties/price",
+                        "type": "string",
+                        "title": "The price schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "26.4"
+                        ]
+                    },
+                    "date": {
+                        "$id": "#/items/anyOf/0/properties/date",
+                        "type": "string",
+                        "title": "The date schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "4.10.2021"
+                        ]
+                    },
+                    "delivery": {
+                        "$id": "#/items/anyOf/0/properties/delivery",
+                        "type": "string",
+                        "title": "The delivery schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "pickup"
+                        ]
+                    },
+                    "contacts": {
+                        "$id": "#/items/anyOf/0/properties/contacts",
+                        "type": "object",
+                        "title": "The contacts schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "userID": "d0941d7b-6d57-4b42-99e5-a2ee919e0793",
+                                "username": "veke",
+                                "email": "veke.table@gmail.com",
+                                "phone": "0442943951"
+                            }
+                        ],
+                        "required": [
+                            "userID",
+                            "username",
+                            "email",
+                            "phone"
+                        ],
+                        "properties": {
+                            "userID": {
+                                "$id": "#/items/anyOf/0/properties/contacts/properties/userID",
+                                "type": "string",
+                                "title": "The userID schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "d0941d7b-6d57-4b42-99e5-a2ee919e0793"
+                                ]
+                            },
+                            "username": {
+                                "$id": "#/items/anyOf/0/properties/contacts/properties/username",
+                                "type": "string",
+                                "title": "The username schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "veke"
+                                ]
+                            },
+                            "email": {
+                                "$id": "#/items/anyOf/0/properties/contacts/properties/email",
+                                "type": "string",
+                                "title": "The email schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "veke.table@gmail.com"
+                                ]
+                            },
+                            "phone": {
+                                "$id": "#/items/anyOf/0/properties/contacts/properties/phone",
+                                "type": "string",
+                                "title": "The phone schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "0442943951"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "additionalProperties": true
+            }
+        ]
+    }
+}

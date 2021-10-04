@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "postInfo",
+    "type": "object",
+    "title": "Posting info",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "title": "ps46",
+            "description": "hyvä kuntoinen",
+            "category": "videopelit",
+            "location": "Oulu",
+            "price": "26.4",
+            "delivery": "pickup"
+        }
+    ],
+    "required": [
+        "title",
+        "description",
+        "category",
+        "location",
+        "price",
+        "delivery"
+    ],
+    "properties": {
+        "title": {
+            "$id": "#/properties/title",
+            "type": "string",
+            "title": "Postings title",
+            "description": "Short title for the posting about what you are selling.",
+            "default": "",
+            "examples": [
+                "ps46"
+            ]
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "Postings info",
+            "description": "More information what you are selling.",
+            "default": "",
+            "examples": [
+                "hyvä kuntoinen"
+            ]
+        },
+        "category": {
+            "$id": "#/properties/category",
+            "type": "string",
+            "title": "Postings category",
+            "description": "Category of what you are selling.",
+            "default": "",
+            "examples": [
+                "videopelit"
+            ]
+        },
+        "location": {
+            "$id": "#/properties/location",
+            "type": "string",
+            "title": "City where you are selling",
+            "description": "City where you are selling.",
+            "default": "",
+            "examples": [
+                "Oulu"
+            ]
+        },
+        "price": {
+            "$id": "#/properties/price",
+            "type": "string",
+            "title": "Price of the item",
+            "description": "Price of the item.",
+            "default": "",
+            "examples": [
+                "26.4"
+            ]
+        },
+        "delivery": {
+            "$id": "#/properties/delivery",
+            "type": "string",
+            "title": "Type of delivery",
+            "description": "Pickup or shipping.",
+            "default": "",
+            "examples": [
+                "pickup"
+            ]
+        }
+    },
+    "additionalProperties": true
+}

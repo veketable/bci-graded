@@ -1,0 +1,323 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "putPostSchema",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "id": "85cc3b04-df10-49e0-962c-fb2857e85a8a",
+            "title": "ps46",
+            "description": "hyvä kuntoinen",
+            "category": "videopelit",
+            "location": "Oulu",
+            "image": [
+                {
+                    "fieldname": "photos",
+                    "originalname": "dog.jpg",
+                    "encoding": "7bit",
+                    "mimetype": "image/jpeg",
+                    "destination": "images/",
+                    "filename": "f13516be18f122b8b25951dcc3896390",
+                    "path": "images\\f13516be18f122b8b25951dcc3896390",
+                    "size": 8174
+                }
+            ],
+            "price": "26.4",
+            "date": "4.10.2021",
+            "delivery": "pickup",
+            "contacts": {
+                "userID": "d1ef400e-99a2-4121-81d4-2792ac4a2510",
+                "username": "veke",
+                "email": "veke.table@gmail.com",
+                "phone": "0442943951"
+            }
+        }
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string",
+            "title": "The id schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "85cc3b04-df10-49e0-962c-fb2857e85a8a"
+            ]
+        },
+        "title": {
+            "$id": "#/properties/title",
+            "type": "string",
+            "title": "The title schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "ps46"
+            ]
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "hyvä kuntoinen"
+            ]
+        },
+        "category": {
+            "$id": "#/properties/category",
+            "type": "string",
+            "title": "The category schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "videopelit"
+            ]
+        },
+        "location": {
+            "$id": "#/properties/location",
+            "type": "string",
+            "title": "The location schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Oulu"
+            ]
+        },
+        "image": {
+            "$id": "#/properties/image",
+            "type": "array",
+            "title": "The image schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "fieldname": "photos",
+                        "originalname": "dog.jpg",
+                        "encoding": "7bit",
+                        "mimetype": "image/jpeg",
+                        "destination": "images/",
+                        "filename": "f13516be18f122b8b25951dcc3896390",
+                        "path": "images\\f13516be18f122b8b25951dcc3896390",
+                        "size": 8174
+                    }
+                ]
+            ],
+            "items": {
+                "$id": "#/properties/image/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/image/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "fieldname": "photos",
+                                "originalname": "dog.jpg",
+                                "encoding": "7bit",
+                                "mimetype": "image/jpeg",
+                                "destination": "images/",
+                                "filename": "f13516be18f122b8b25951dcc3896390",
+                                "path": "images\\f13516be18f122b8b25951dcc3896390",
+                                "size": 8174
+                            }
+                        ],
+                        "required": [
+                            "fieldname",
+                            "originalname",
+                            "encoding",
+                            "mimetype",
+                            "destination",
+                            "filename",
+                            "path",
+                            "size"
+                        ],
+                        "properties": {
+                            "fieldname": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/fieldname",
+                                "type": "string",
+                                "title": "The fieldname schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "photos"
+                                ]
+                            },
+                            "originalname": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/originalname",
+                                "type": "string",
+                                "title": "The originalname schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "dog.jpg"
+                                ]
+                            },
+                            "encoding": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/encoding",
+                                "type": "string",
+                                "title": "The encoding schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "7bit"
+                                ]
+                            },
+                            "mimetype": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/mimetype",
+                                "type": "string",
+                                "title": "The mimetype schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "image/jpeg"
+                                ]
+                            },
+                            "destination": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/destination",
+                                "type": "string",
+                                "title": "The destination schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "images/"
+                                ]
+                            },
+                            "filename": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/filename",
+                                "type": "string",
+                                "title": "The filename schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "f13516be18f122b8b25951dcc3896390"
+                                ]
+                            },
+                            "path": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/path",
+                                "type": "string",
+                                "title": "The path schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "images\\f13516be18f122b8b25951dcc3896390"
+                                ]
+                            },
+                            "size": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/size",
+                                "type": "integer",
+                                "title": "The size schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    8174
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        },
+        "price": {
+            "$id": "#/properties/price",
+            "type": "string",
+            "title": "The price schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "26.4"
+            ]
+        },
+        "date": {
+            "$id": "#/properties/date",
+            "type": "string",
+            "title": "The date schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "4.10.2021"
+            ]
+        },
+        "delivery": {
+            "$id": "#/properties/delivery",
+            "type": "string",
+            "title": "The delivery schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "pickup"
+            ]
+        },
+        "contacts": {
+            "$id": "#/properties/contacts",
+            "type": "object",
+            "title": "The contacts schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "userID": "d1ef400e-99a2-4121-81d4-2792ac4a2510",
+                    "username": "veke",
+                    "email": "veke.table@gmail.com",
+                    "phone": "0442943951"
+                }
+            ],
+            "required": [
+                "userID",
+                "username",
+                "email",
+                "phone"
+            ],
+            "properties": {
+                "userID": {
+                    "$id": "#/properties/contacts/properties/userID",
+                    "type": "string",
+                    "title": "The userID schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "d1ef400e-99a2-4121-81d4-2792ac4a2510"
+                    ]
+                },
+                "username": {
+                    "$id": "#/properties/contacts/properties/username",
+                    "type": "string",
+                    "title": "The username schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "veke"
+                    ]
+                },
+                "email": {
+                    "$id": "#/properties/contacts/properties/email",
+                    "type": "string",
+                    "title": "The email schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "veke.table@gmail.com"
+                    ]
+                },
+                "phone": {
+                    "$id": "#/properties/contacts/properties/phone",
+                    "type": "string",
+                    "title": "The phone schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "0442943951"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
