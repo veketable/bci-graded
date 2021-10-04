@@ -28,6 +28,8 @@ const putPostValidator = ajv.compile(putPostSchema)
 
 app.use(bodyParser.json());
 
+app.set('port', (process.env.PORT || 80))
+
 const salt = bcrypt.genSaltSync(6)
 const testHashed = bcrypt.hashSync("testpassword123", salt)
 
@@ -294,9 +296,6 @@ app.delete('/posting/:id', passport.authenticate('jwt', {session: false}), (req,
     }
 })
 
-
-
-
 app.get('/', (req, res) => {
   res.send('Hello BCI World!')
 })
@@ -305,8 +304,8 @@ let serverInstance = null
 
 module.exports =  {
     start : function(){
-        serverInstance  = app.listen(port, () => {
-            console.log(`Example app listening at http://localhost:${port}`)
+        serverInstance  = app.listen(app.get('port'), () => {
+            console.log(`Node app is running on port`, app.get('port'))
         })
     },
     close : function(){
