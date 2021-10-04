@@ -108,7 +108,6 @@ passport.use(new JwtStrategy(options, (payload, done) => {
 
 }))
 
-
 app.post('/userLogin', passport.authenticate('basic', {session: false}), (req, res) => {
 
     
@@ -183,8 +182,6 @@ app.post('/posting', passport.authenticate('jwt', {session: false}), upload.arra
     }else{
         res.sendStatus(401)
     }
-
-    
     
 })
 
@@ -236,14 +233,12 @@ app.get('/posting', (req, res) => {
     }else{
         res.sendStatus(400)
     }
-    
-            
+           
 })
 
 app.put('/posting/:id', passport.authenticate('jwt', {session: false}), upload.array('photos', 4), (req, res) => {
 
     const validationResult = putPostValidator(req.body)
-
 
     const post = posts.find(p => p.id === req.params.id);
     const payload = (req.headers.authorization).split('.')
