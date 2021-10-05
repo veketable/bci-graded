@@ -20,7 +20,7 @@ const putPostSchema = require('./schemas/putPostSchema.schema.json')
 const jwtSecretKey = "mySecretKey"
 var cloudinary = require('cloudinary')
 var cloudinaryStorage = require('multer-storage-cloudinary')
-//const port = 3000
+const port = 3000
 
 cloudinary.config({ 
     cloud_name: 'dzt0wh5as', 
@@ -45,7 +45,7 @@ const putPostValidator = ajv.compile(putPostSchema)
 
 app.use(bodyParser.json());
 
-app.set('port', (process.env.PORT || 80))
+//app.set('port', (process.env.PORT || 80))
 
 const salt = bcrypt.genSaltSync(6)
 const testHashed = bcrypt.hashSync("testpassword123", salt)
@@ -324,15 +324,18 @@ app.delete('/posting/:id', passport.authenticate('jwt', {session: false}), (req,
     }
 })
 
+const path = require('path')
+
 app.get('/', (req, res) => {
-  res.send('Hello BCI World!')
+  res.sendFile(path.join(__dirname,'/HumanReadableHTMLDocumentation.html'))
 })
 
 let serverInstance = null
 
 module.exports =  {
     start : function(){
-        serverInstance  = app.listen(app.get('port'), () => {
+        //app.get('port')
+        serverInstance  = app.listen(port, () => {
             console.log(`Node app is running on port`)
         })
     },
