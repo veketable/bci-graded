@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "postInfo",
     "type": "object",
-    "title": "Posting info",
+    "title": "The root schema",
     "description": "The root schema comprises the entire JSON document.",
     "default": {},
     "examples": [
@@ -11,6 +11,108 @@
             "description": "hyvä kuntoinen",
             "category": "videopelit",
             "location": "Oulu",
+            "image": [
+                {
+                    "fieldname": "photos",
+                    "originalname": "86279945.jpg",
+                    "encoding": "7bit",
+                    "mimetype": "image/jpeg",
+                    "asset_id": "a6202ffc7141a28dbc116bce14d452af",
+                    "public_id": "nqbp84g0htrpr9gtoeqh",
+                    "version": 1633447128,
+                    "version_id": "268ccfe47d806ff954148f1523d1684e",
+                    "signature": "d1de5cba4d1e6aef40e424f6e21516fdbf6f729b",
+                    "width": 748,
+                    "height": 960,
+                    "format": "jpg",
+                    "resource_type": "image",
+                    "created_at": "2021-10-05T15:18:48Z",
+                    "tags": [],
+                    "bytes": 47995,
+                    "type": "upload",
+                    "etag": "9879e15609bad5f39207759fc6666dda",
+                    "placeholder": false,
+                    "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg",
+                    "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg",
+                    "original_filename": "file",
+                    "api_key": "968542668164727"
+                },
+                {
+                    "fieldname": "photos",
+                    "originalname": "cool-high-definition-in-transformers-amazing-optimus-prime-wide-jpg (2).jpg",
+                    "encoding": "7bit",
+                    "mimetype": "image/jpeg",
+                    "asset_id": "c3e680b8b43663cd281b3a0f9706058e",
+                    "public_id": "gbzkdfvwdgdxqtnlglir",
+                    "version": 1633447128,
+                    "version_id": "268ccfe47d806ff954148f1523d1684e",
+                    "signature": "6edc466ffd79797c410a26d3335675bbe54bc3b9",
+                    "width": 839,
+                    "height": 857,
+                    "format": "jpg",
+                    "resource_type": "image",
+                    "created_at": "2021-10-05T15:18:48Z",
+                    "tags": [],
+                    "bytes": 271763,
+                    "type": "upload",
+                    "etag": "74914690f6f1a604c9108cb1998ef4fa",
+                    "placeholder": false,
+                    "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/gbzkdfvwdgdxqtnlglir.jpg",
+                    "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/gbzkdfvwdgdxqtnlglir.jpg",
+                    "original_filename": "file",
+                    "api_key": "968542668164727"
+                },
+                {
+                    "fieldname": "photos",
+                    "originalname": "dog.jpg",
+                    "encoding": "7bit",
+                    "mimetype": "image/jpeg",
+                    "asset_id": "a280bbf04192109946f0ff5551036efb",
+                    "public_id": "mjivahqrordsm4jb7gor",
+                    "version": 1633447128,
+                    "version_id": "268ccfe47d806ff954148f1523d1684e",
+                    "signature": "66ad6fc3a476ccc58cbe2ef2ede449f02bc89065",
+                    "width": 244,
+                    "height": 207,
+                    "format": "jpg",
+                    "resource_type": "image",
+                    "created_at": "2021-10-05T15:18:48Z",
+                    "tags": [],
+                    "bytes": 8174,
+                    "type": "upload",
+                    "etag": "8c5a3f8f5f4ff7ef58c002cb7a5aaff5",
+                    "placeholder": false,
+                    "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/mjivahqrordsm4jb7gor.jpg",
+                    "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/mjivahqrordsm4jb7gor.jpg",
+                    "original_filename": "file",
+                    "api_key": "968542668164727"
+                },
+                {
+                    "fieldname": "photos",
+                    "originalname": "optimus.jpg",
+                    "encoding": "7bit",
+                    "mimetype": "image/jpeg",
+                    "asset_id": "abc3f1314ee52173bc991bf4e49c8b84",
+                    "public_id": "zn9dbvucmaqwhd4b1fku",
+                    "version": 1633447128,
+                    "version_id": "038dfbb157b5b2bf77716a8f61c023fb",
+                    "signature": "45ec3062a1e1301788d2d10e8fa1025e793a4d01",
+                    "width": 246,
+                    "height": 205,
+                    "format": "png",
+                    "resource_type": "image",
+                    "created_at": "2021-10-05T15:18:48Z",
+                    "tags": [],
+                    "bytes": 3457,
+                    "type": "upload",
+                    "etag": "99988f21a267505847dfcb339504f809",
+                    "placeholder": false,
+                    "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/zn9dbvucmaqwhd4b1fku.png",
+                    "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/zn9dbvucmaqwhd4b1fku.png",
+                    "original_filename": "file",
+                    "api_key": "968542668164727"
+                }
+            ],
             "price": "26.4",
             "delivery": "pickup"
         }
@@ -27,8 +129,8 @@
         "title": {
             "$id": "#/properties/title",
             "type": "string",
-            "title": "Postings title",
-            "description": "Short title for the posting about what you are selling.",
+            "title": "The title schema",
+            "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
                 "ps46"
@@ -37,8 +139,8 @@
         "description": {
             "$id": "#/properties/description",
             "type": "string",
-            "title": "Postings info",
-            "description": "More information what you are selling.",
+            "title": "The description schema",
+            "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
                 "hyvä kuntoinen"
@@ -47,8 +149,8 @@
         "category": {
             "$id": "#/properties/category",
             "type": "string",
-            "title": "Postings category",
-            "description": "Category of what you are selling.",
+            "title": "The category schema",
+            "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
                 "videopelit"
@@ -57,18 +159,379 @@
         "location": {
             "$id": "#/properties/location",
             "type": "string",
-            "title": "City where you are selling",
-            "description": "City where you are selling.",
+            "title": "The location schema",
+            "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
                 "Oulu"
             ]
         },
+        "image": {
+            "$id": "#/properties/image",
+            "type": "array",
+            "title": "The image schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "fieldname": "photos",
+                        "originalname": "86279945.jpg",
+                        "encoding": "7bit",
+                        "mimetype": "image/jpeg",
+                        "asset_id": "a6202ffc7141a28dbc116bce14d452af",
+                        "public_id": "nqbp84g0htrpr9gtoeqh",
+                        "version": 1633447128,
+                        "version_id": "268ccfe47d806ff954148f1523d1684e",
+                        "signature": "d1de5cba4d1e6aef40e424f6e21516fdbf6f729b",
+                        "width": 748,
+                        "height": 960,
+                        "format": "jpg",
+                        "resource_type": "image",
+                        "created_at": "2021-10-05T15:18:48Z",
+                        "tags": [],
+                        "bytes": 47995,
+                        "type": "upload",
+                        "etag": "9879e15609bad5f39207759fc6666dda",
+                        "placeholder": false,
+                        "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg",
+                        "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg",
+                        "original_filename": "file",
+                        "api_key": "968542668164727"
+                    },
+                    {
+                        "fieldname": "photos",
+                        "originalname": "cool-high-definition-in-transformers-amazing-optimus-prime-wide-jpg (2).jpg",
+                        "encoding": "7bit",
+                        "mimetype": "image/jpeg",
+                        "asset_id": "c3e680b8b43663cd281b3a0f9706058e",
+                        "public_id": "gbzkdfvwdgdxqtnlglir",
+                        "version": 1633447128,
+                        "version_id": "268ccfe47d806ff954148f1523d1684e",
+                        "signature": "6edc466ffd79797c410a26d3335675bbe54bc3b9",
+                        "width": 839,
+                        "height": 857,
+                        "format": "jpg",
+                        "resource_type": "image",
+                        "created_at": "2021-10-05T15:18:48Z",
+                        "tags": [],
+                        "bytes": 271763,
+                        "type": "upload",
+                        "etag": "74914690f6f1a604c9108cb1998ef4fa",
+                        "placeholder": false,
+                        "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/gbzkdfvwdgdxqtnlglir.jpg",
+                        "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/gbzkdfvwdgdxqtnlglir.jpg",
+                        "original_filename": "file",
+                        "api_key": "968542668164727"
+                    }
+                ]
+            ],
+            "items": {
+                "$id": "#/properties/image/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/image/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "fieldname": "photos",
+                                "originalname": "86279945.jpg",
+                                "encoding": "7bit",
+                                "mimetype": "image/jpeg",
+                                "asset_id": "a6202ffc7141a28dbc116bce14d452af",
+                                "public_id": "nqbp84g0htrpr9gtoeqh",
+                                "version": 1633447128,
+                                "version_id": "268ccfe47d806ff954148f1523d1684e",
+                                "signature": "d1de5cba4d1e6aef40e424f6e21516fdbf6f729b",
+                                "width": 748,
+                                "height": 960,
+                                "format": "jpg",
+                                "resource_type": "image",
+                                "created_at": "2021-10-05T15:18:48Z",
+                                "tags": [],
+                                "bytes": 47995,
+                                "type": "upload",
+                                "etag": "9879e15609bad5f39207759fc6666dda",
+                                "placeholder": false,
+                                "url": "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg",
+                                "secure_url": "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg",
+                                "original_filename": "file",
+                                "api_key": "968542668164727"
+                            }
+                        ],
+                        "required": [
+                            "fieldname",
+                            "originalname",
+                            "encoding",
+                            "mimetype",
+                            "asset_id",
+                            "public_id",
+                            "version",
+                            "version_id",
+                            "signature",
+                            "width",
+                            "height",
+                            "format",
+                            "resource_type",
+                            "created_at",
+                            "tags",
+                            "bytes",
+                            "type",
+                            "etag",
+                            "placeholder",
+                            "url",
+                            "secure_url",
+                            "original_filename",
+                            "api_key"
+                        ],
+                        "properties": {
+                            "fieldname": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/fieldname",
+                                "type": "string",
+                                "title": "The fieldname schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "photos"
+                                ]
+                            },
+                            "originalname": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/originalname",
+                                "type": "string",
+                                "title": "The originalname schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "86279945.jpg"
+                                ]
+                            },
+                            "encoding": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/encoding",
+                                "type": "string",
+                                "title": "The encoding schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "7bit"
+                                ]
+                            },
+                            "mimetype": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/mimetype",
+                                "type": "string",
+                                "title": "The mimetype schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "image/jpeg"
+                                ]
+                            },
+                            "asset_id": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/asset_id",
+                                "type": "string",
+                                "title": "The asset_id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "a6202ffc7141a28dbc116bce14d452af"
+                                ]
+                            },
+                            "public_id": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/public_id",
+                                "type": "string",
+                                "title": "The public_id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "nqbp84g0htrpr9gtoeqh"
+                                ]
+                            },
+                            "version": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/version",
+                                "type": "integer",
+                                "title": "The version schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    1633447128
+                                ]
+                            },
+                            "version_id": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/version_id",
+                                "type": "string",
+                                "title": "The version_id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "268ccfe47d806ff954148f1523d1684e"
+                                ]
+                            },
+                            "signature": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/signature",
+                                "type": "string",
+                                "title": "The signature schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "d1de5cba4d1e6aef40e424f6e21516fdbf6f729b"
+                                ]
+                            },
+                            "width": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/width",
+                                "type": "integer",
+                                "title": "The width schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    748
+                                ]
+                            },
+                            "height": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/height",
+                                "type": "integer",
+                                "title": "The height schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    960
+                                ]
+                            },
+                            "format": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/format",
+                                "type": "string",
+                                "title": "The format schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "jpg"
+                                ]
+                            },
+                            "resource_type": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/resource_type",
+                                "type": "string",
+                                "title": "The resource_type schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "image"
+                                ]
+                            },
+                            "created_at": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/created_at",
+                                "type": "string",
+                                "title": "The created_at schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "2021-10-05T15:18:48Z"
+                                ]
+                            },
+                            "tags": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/tags",
+                                "type": "array",
+                                "title": "The tags schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": [],
+                                "examples": [
+                                    []
+                                ],
+                                "items": {
+                                    "$id": "#/properties/image/items/anyOf/0/properties/tags/items"
+                                }
+                            },
+                            "bytes": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/bytes",
+                                "type": "integer",
+                                "title": "The bytes schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    47995
+                                ]
+                            },
+                            "type": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/type",
+                                "type": "string",
+                                "title": "The type schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "upload"
+                                ]
+                            },
+                            "etag": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/etag",
+                                "type": "string",
+                                "title": "The etag schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "9879e15609bad5f39207759fc6666dda"
+                                ]
+                            },
+                            "placeholder": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/placeholder",
+                                "type": "boolean",
+                                "title": "The placeholder schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": false,
+                                "examples": [
+                                    false
+                                ]
+                            },
+                            "url": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/url",
+                                "type": "string",
+                                "title": "The url schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "http://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg"
+                                ]
+                            },
+                            "secure_url": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/secure_url",
+                                "type": "string",
+                                "title": "The secure_url schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "https://res.cloudinary.com/dzt0wh5as/image/upload/v1633447128/nqbp84g0htrpr9gtoeqh.jpg"
+                                ]
+                            },
+                            "original_filename": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/original_filename",
+                                "type": "string",
+                                "title": "The original_filename schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "file"
+                                ]
+                            },
+                            "api_key": {
+                                "$id": "#/properties/image/items/anyOf/0/properties/api_key",
+                                "type": "string",
+                                "title": "The api_key schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "968542668164727"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        },
         "price": {
             "$id": "#/properties/price",
             "type": "string",
-            "title": "Price of the item",
-            "description": "Price of the item.",
+            "title": "The price schema",
+            "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
                 "26.4"
@@ -77,13 +540,13 @@
         "delivery": {
             "$id": "#/properties/delivery",
             "type": "string",
-            "title": "Type of delivery",
-            "description": "Pickup or shipping.",
+            "title": "The delivery schema",
+            "description": "An explanation about the purpose of this instance.",
             "default": "",
             "examples": [
                 "pickup"
             ]
         }
     },
-    "additionalProperties": true
+    "additionalProperties": false
 }

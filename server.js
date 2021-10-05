@@ -20,6 +20,13 @@ const putPostSchema = require('./schemas/putPostSchema.schema.json')
 const jwtSecretKey = "mySecretKey"
 var cloudinary = require('cloudinary')
 var cloudinaryStorage = require('multer-storage-cloudinary')
+const port = 3000
+
+cloudinary.config({ 
+    cloud_name: 'dzt0wh5as', 
+    api_key: '968542668164727', 
+    api_secret: 'LRPuyJJORC54Y8OVj0Fx4E9alCE' 
+  });
 
 var storage = cloudinaryStorage({
     cloudinary: cloudinary,
@@ -38,7 +45,7 @@ const putPostValidator = ajv.compile(putPostSchema)
 
 app.use(bodyParser.json());
 
-app.set('port', (process.env.PORT || 80))
+//app.set('port', (process.env.PORT || 80))
 
 const salt = bcrypt.genSaltSync(6)
 const testHashed = bcrypt.hashSync("testpassword123", salt)
@@ -155,10 +162,9 @@ app.get('/jwtProtectedResource', passport.authenticate('jwt', {session: false}),
 
 })
 
-app.post('/posting', passport.authenticate('jwt', {session: false}), parser.array('photos', 4), (req, res) => {
+app.post('/posting', passport.authenticate('jwt', {session: false}), parser.array('photos'), (req, res) => {
 
     const validationResult = postInfoValidator(req.body)
-
     var today = new Date()
     var date = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear()
     const payload = (req.headers.authorization).split('.')
@@ -166,26 +172,34 @@ app.post('/posting', passport.authenticate('jwt', {session: false}), parser.arra
     const allOFContact = s.toString()
     var contactFinal = JSON.parse(allOFContact)
     delete contactFinal.iat
-    
     const user = userDb.find(u => u.userID == contactFinal.userID)
+    var images = []
     if(user != undefined){
         if(validationResult == true){
+            if(req.files != null){
+                if(req.files.length < 5){
+                    images = req.files
+                }else{
+                    res.sendStatus(400)
+                }
+            }
         const newPost ={
             id: uuidv4(),
             title: req.body.title,
             description: req.body.description,
             category: req.body.category,
             location: req.body.location,
-            image: req.files,
+            image: images,
             price: req.body.price,
             date: date,
             delivery: req.body.delivery,
             contacts: contactFinal
         }
         res.sendStatus(201)
-        res.json(req.file)
+        
         
         posts.push(newPost)
+        console.log(posts)
         }else {
             res.sendStatus(400)
         }
@@ -193,6 +207,8 @@ app.post('/posting', passport.authenticate('jwt', {session: false}), parser.arra
     }else{
         res.sendStatus(401)
     }
+    
+    
     
 })
 
@@ -247,37 +263,44 @@ app.get('/posting', (req, res) => {
            
 })
 
-app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.array('photos', 4), (req, res) => {
+app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.array('photos'), (req, res) => {
 
     const validationResult = putPostValidator(req.body)
-
     const post = posts.find(p => p.id === req.params.id);
     const payload = (req.headers.authorization).split('.')
     var s = new Buffer.from(payload[1], 'base64')
     const allOFContact = s.toString()
     var contactFinal = JSON.parse(allOFContact)
     delete contactFinal.iat
-
-    if(post === undefined){
-        res.sendStatus(404);
-    }else if(contactFinal.userID == post.contacts.userID){ 
-        if(req.body.title != null) {post.title = req.body.title}
-        if(req.body.description != null) {post.description = req.body.description}
-        if(req.body.category != null) {post.category = req.body.category}
-        if(req.body.location != null) {post.location = req.body.location}
-        if(req.body.image != null) {post.image = req.files}
-        if(req.body.price != null) {post.price = req.body.price}
-        if(req.body.delivery != null) {post.delivery = req.body.delivery}
-        if(req.body.constructor === Object && Object.keys(req.body).length === 0 || !validationResult){
-            res.sendStatus(400)
+        if(post === undefined){
+            res.sendStatus(404);
+        }else if(contactFinal.userID == post.contacts.userID){ 
+            if(req.files != null){
+                if(req.files.length < 5){
+                    images = req.files
+                }else{
+                    res.sendStatus(400)
+                }
+            }
+            if(req.body.title != null) {post.title = req.body.title}
+            if(req.body.description != null) {post.description = req.body.description}
+            if(req.body.category != null) {post.category = req.body.category}
+            if(req.body.location != null) {post.location = req.body.location}
+            if(req.files != null) {post.image = req.files}
+            if(req.body.price != null) {post.price = req.body.price}
+            if(req.body.delivery != null) {post.delivery = req.body.delivery}
+            if(req.body.constructor === Object && Object.keys(req.body).length === 0 || !validationResult){
+                res.sendStatus(400)
+            }else{
+                res.sendStatus(200)
+                res.json(req.file)
+            }
+            
         }else{
-            res.sendStatus(200)
-            res.json(req.file)
+            res.sendStatus(401)
         }
-        
-    }else{
-        res.sendStatus(401)
-    }
+    
+    
 })
 
 app.delete('/posting/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
@@ -295,8 +318,6 @@ app.delete('/posting/:id', passport.authenticate('jwt', {session: false}), (req,
         res.sendStatus(404);
     }else if (contactFinal.userID == post.contacts.userID){
         posts.splice(postindex, 1)
-        console.log("DELETE")
-        console.log(posts)
         res.sendStatus(200)
     }else{
         res.sendStatus(401)
@@ -311,8 +332,8 @@ let serverInstance = null
 
 module.exports =  {
     start : function(){
-        serverInstance  = app.listen(app.get('port'), () => {
-            console.log(`Node app is running on port`, app.get('port'))
+        serverInstance  = app.listen(port, () => {
+            console.log(`Node app is running on port`)
         })
     },
     close : function(){
