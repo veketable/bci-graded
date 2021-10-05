@@ -17,11 +17,13 @@ const getInfoSchema = require('./schemas/getInfoSchema.schema.json')
 const userRegistrationSchema = require('./schemas/userRegisterSchema.schema.json')
 const findPostSchema = require('./schemas/findPostSchema.schema.json')
 const putPostSchema = require('./schemas/putPostSchema.schema.json')
-const jwtSecretKey = "mySecretKey"
+const secrets = require("./secrets.json")
 var cloudinary = require('cloudinary')
 var cloudinaryStorage = require('multer-storage-cloudinary')
+const path = require('path')
 //const port = 3000
 
+//cloudinary folder config
 cloudinary.config({ 
     cloud_name: 'dzt0wh5as', 
     api_key: '968542668164727', 
@@ -36,7 +38,7 @@ var storage = cloudinaryStorage({
 
 var parser = multer ({storage: storage})
 
-
+//validators for schemas
 const postInfoValidator = ajv.compile(postInfoSchema)
 const userRegistrationgValidator = ajv.compile(userRegistrationSchema)
 const getInfoValidator = ajv.compile(getInfoSchema)
@@ -44,24 +46,23 @@ const findPostValidator = ajv.compile(findPostSchema)
 const putPostValidator = ajv.compile(putPostSchema)
 
 app.use(bodyParser.json());
-
 app.set('port', (process.env.PORT || 80))
 
 const salt = bcrypt.genSaltSync(6)
-const testHashed = bcrypt.hashSync("testpassword123", salt)
+const testHashed = bcrypt.hashSync("admin", salt)
 
 let userDb = [{
     userID: uuidv4(),
-    username: "testuserLogin",
+    username: "admin",
     password: testHashed,
-    email: "test.email@hotmail.com",
+    email: "admin.admin@gmail.com",
     phone: "1234"
 }]
 let posts = []
 
+
 passport.use(new BasicStrategy(
     (username, password, done) => {
-        
         //search userDb for matching user       
         const searchResut = userDb.find(user =>  {
             if (user.username === username) {
@@ -114,17 +115,16 @@ app.post('/userSignup', upload.none() , (req, res) => {
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: jwtSecretKey
+    secretOrKey: secrets.jwtSecretKey
 }
 
 passport.use(new JwtStrategy(options, (payload, done) => {
-    //do something with the payload
-
     //pass the control to the handler methods
     done(null, {})
 
 }))
 
+//user login
 app.post('/userLogin', passport.authenticate('basic', {session: false}), (req, res) => {
 
     
@@ -156,12 +156,7 @@ app.post('/userLogin', passport.authenticate('basic', {session: false}), (req, r
 
 })
 
-app.get('/jwtProtectedResource', passport.authenticate('jwt', {session: false}), (req, res) => {
-
-    res.send("you successfully accessed JWT protected API resource")
-
-})
-
+//create new posting
 app.post('/posting', passport.authenticate('jwt', {session: false}), parser.array('photos'), (req, res) => {
 
     const validationResult = postInfoValidator(req.body)
@@ -212,6 +207,7 @@ app.post('/posting', passport.authenticate('jwt', {session: false}), parser.arra
     
 })
 
+//get every posting or search for posting
 app.get('/posting', (req, res) => {
 
     const validationResult = findPostValidator(req.body)
@@ -263,6 +259,7 @@ app.get('/posting', (req, res) => {
            
 })
 
+//edit posting but posting id
 app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.array('photos'), (req, res) => {
 
     const validationResult = putPostValidator(req.body)
@@ -272,6 +269,7 @@ app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.a
     const allOFContact = s.toString()
     var contactFinal = JSON.parse(allOFContact)
     delete contactFinal.iat
+
         if(post === undefined){
             res.sendStatus(404);
         }else if(contactFinal.userID == post.contacts.userID){ 
@@ -303,6 +301,7 @@ app.put('/posting/:id', passport.authenticate('jwt', {session: false}), parser.a
     
 })
 
+//delete posting by posting id
 app.delete('/posting/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
     const postindex = posts.findIndex(p => p.id === req.params.id);
     const post = posts.find(p => p.id === req.params.id);
@@ -324,8 +323,8 @@ app.delete('/posting/:id', passport.authenticate('jwt', {session: false}), (req,
     }
 })
 
-const path = require('path')
 
+//display html document
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,'/HumanReadableHTMLDocumentation.html'))
 })
@@ -334,7 +333,6 @@ let serverInstance = null
 
 module.exports =  {
     start : function(){
-        
         serverInstance  = app.listen(app.get('port'), () => {
             console.log(`Node app is running on port`)
         })
