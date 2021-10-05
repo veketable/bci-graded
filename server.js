@@ -17,7 +17,7 @@ const getInfoSchema = require('./schemas/getInfoSchema.schema.json')
 const userRegistrationSchema = require('./schemas/userRegisterSchema.schema.json')
 const findPostSchema = require('./schemas/findPostSchema.schema.json')
 const putPostSchema = require('./schemas/putPostSchema.schema.json')
-const secrets = require("./secrets.json")
+const jwtSecretKey = "reallySecretKey"
 var cloudinary = require('cloudinary')
 var cloudinaryStorage = require('multer-storage-cloudinary')
 const path = require('path')
@@ -115,7 +115,7 @@ app.post('/userSignup', upload.none() , (req, res) => {
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: secrets.jwtSecretKey
+    secretOrKey: jwtSecretKey
 }
 
 passport.use(new JwtStrategy(options, (payload, done) => {
